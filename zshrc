@@ -1,14 +1,21 @@
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="rbates"
-DISABLE_AUTO_UPDATE="true"
-DISABLE_LS_COLORS="true"
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
 
-plugins=(git bundler brew gem rbates)
-
-export PATH="/usr/local/bin:$PATH"
-export EDITOR='mate -w'
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(zsh-git-prompt zsh-syntax-highlighting history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.bash_aliases
 
-# for Homebrew installed rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# User configuration
+
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH=${PATH}:~/apps/adt-bundle-linux-x86_64-20140702/sdk/tools
+export PATH=${PATH}:~/apps/adt-bundle-linux-x86_64-20140702/sdk/platform-tools
+
+export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
