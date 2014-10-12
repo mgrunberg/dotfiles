@@ -1,4 +1,11 @@
-.DS_Store
 .svn
-*~
 .*.swp
+.directory
+*~
+.rvmrc
+.sublime-project
+*.sublime-project
+*.sublime-workspace
+.ruby-gemset
+.ruby-version
+.bundle/
