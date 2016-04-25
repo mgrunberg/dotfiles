@@ -3,7 +3,7 @@ alias b="bundle exec"
 alias br='bundle exec rails'
 alias zbr='zeus rails'
 
-alias git=hub
+#alias git=hub
 
 alias st='git status'
 alias c="git commit -m $1"
