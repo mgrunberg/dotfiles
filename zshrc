@@ -22,6 +22,7 @@ export PATH=${PATH}:~/apps/adt-bundle-linux-x86_64-20140702/sdk/platform-tools
 
 export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 export ANDROID_HOME="/home/matias/Android/Sdk"
+export QT_QPA_PLATFORM=""
 
 # Docker
 fpath=(~/.zsh/completion $fpath)
