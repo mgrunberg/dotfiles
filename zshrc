@@ -1,10 +1,12 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+export NVM_AUTO_USE=true
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git-prompt zsh-syntax-highlighting history-substring-search)
+plugins=(git-prompt zsh-syntax-highlighting history-substring-search zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_aliases
@@ -27,31 +29,6 @@ export QT_QPA_PLATFORM=""
 # Docker
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
-
-export NVM_DIR="/home/matias/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# place this after nvm initialization!
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
 
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
