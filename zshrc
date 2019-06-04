@@ -6,7 +6,7 @@ export NVM_AUTO_USE=true
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git-prompt zsh-syntax-highlighting history-substring-search zsh-nvm)
+plugins=(git-prompt zsh-syntax-highlighting history-substring-search zsh-nvm zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_aliases
@@ -23,9 +23,8 @@ export PATH=${PATH}:~/.local/bin
 
 export QT_QPA_PLATFORM=""
 
-# Docker
-fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit -i
+# for zsh-completions plugin (it is a bit slow)
+autoload -U compinit && compinit
 
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
