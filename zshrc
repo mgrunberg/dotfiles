@@ -12,7 +12,7 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_aliases
 
 # Add gitstatus to prompt
-PROMPT='%B%m@%{$fg[blue]%}$(rvm-prompt)%{$fg[white]%}%~%b$(git_super_status) %# '
+PROMPT='%B%m@%{$fg[blue]%}$(rvm-prompt)%{$fg[white]%}%~%b$(git_super_status)'$'\n''() -> '
 # Clear right prompt
 RPROMPT=''
 
