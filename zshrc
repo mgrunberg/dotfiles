@@ -19,8 +19,7 @@ RPROMPT=''
 # User configuration
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-export PATH=${PATH}:~/apps/adt-bundle-linux-x86_64-20140702/sdk/tools
-export PATH=${PATH}:~/apps/adt-bundle-linux-x86_64-20140702/sdk/platform-tools
+export PATH=${PATH}:~/.local/bin
 
 export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 export ANDROID_HOME="/home/matias/Android/Sdk"
