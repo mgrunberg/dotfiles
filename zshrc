@@ -21,8 +21,6 @@ RPROMPT=''
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export PATH=${PATH}:~/.local/bin
 
-export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
-export ANDROID_HOME="/home/matias/Android/Sdk"
 export QT_QPA_PLATFORM=""
 
 # Docker
