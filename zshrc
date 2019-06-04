@@ -11,8 +11,12 @@ plugins=(git-prompt zsh-syntax-highlighting history-substring-search ng web-sear
 source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_aliases
 
-# Add gitstatus to prompt
-PROMPT='%B%m@%{$fg[blue]%}$(rvm-prompt)%{$fg[white]%}%~%b$(git_super_status)'$'\n''() -> '
+# Custom prompt format: add rvm & nvm prompts. Also add line break
+node-prompt() {
+ echo "$fg[white]|$fg[green]node-$(nvm_prompt_info)"
+}
+
+PROMPT='%B%m@%{$fg[blue]%}$(rvm-prompt)$(node-prompt)%{$fg[white]%}%~%b$(git_super_status)'$'\n''() -> '
 # Clear right prompt
 RPROMPT=''
 
