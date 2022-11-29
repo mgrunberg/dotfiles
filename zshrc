@@ -1,19 +1,17 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-export NVM_AUTO_USE=true
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git-prompt zsh-syntax-highlighting history-substring-search ng web-search zsh-nvm common-aliases zsh-completions copyfile)
+plugins=(git-prompt zsh-syntax-highlighting history-substring-search ng web-search common-aliases zsh-completions copyfile fnm)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_aliases
 
 # Custom prompt format: add rvm & nvm prompts. Also add line break
 node-prompt() {
- echo "$fg[white]|$fg[green]node-$(nvm_prompt_info)"
+ echo "$fg[white]|$fg[green]node-${"$(fnm current)":1}"
 }
 
 ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}%{✘%G%}"
@@ -32,12 +30,15 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 export PATH=${PATH}:~/.local/bin
 export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/tools/bin:$ANDROID_HOME/tools:$PATH
 
+# fnm
+export PATH=~/.local/share/fnm:${PATH}
+#eval "`fnm env`"
+eval "$(fnm env --use-on-cd)"
+
 export QT_QPA_PLATFORM=""
 
 # for zsh-completions plugin (it is a bit slow)
-autoload -U compinit && compinit
-
-[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
+#autoload -U compinit && compinit
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
