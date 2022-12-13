@@ -4,7 +4,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-prompt zsh-syntax-highlighting history-substring-search ng web-search common-aliases zsh-completions copyfile history fnm sudo)
+plugins=(git git-prompt zsh-syntax-highlighting history-substring-search ng web-search common-aliases zsh-completions copyfile history fnm z zsh-autosuggestions sudo)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_aliases
@@ -42,3 +42,5 @@ export QT_QPA_PLATFORM=""
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+bindkey '^x' autosuggest-execute
