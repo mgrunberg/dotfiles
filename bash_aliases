@@ -26,4 +26,6 @@ alias gl='git lg'
 alias ppr='gh pr create'
 alias prv='gh pr view -w'
 
+alias dev='npm run dev'
+
 ysess='ysess -i'
