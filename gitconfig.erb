@@ -31,6 +31,7 @@
   co = checkout
   nff = merge --no-ff
   lg = log --oneline --decorate --all --graph
+  pt = !git tag -l | xargs git tag -d && git fetch -t
 
 [mergetool]
   keepBackup = false
