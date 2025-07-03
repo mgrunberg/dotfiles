@@ -25,6 +25,6 @@ alias prv='gh pr view -w'
 
 alias dev='npm run dev'
 
-alias gdnode="git diff $1 ':!package-lock.json'"
+alias gdnolocks="git diff $1 ':!package-lock.json' ':!uv.lock' ':!Gemfile.lock'"
 
 ysess='ysess -i'
