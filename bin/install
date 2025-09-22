@@ -29,11 +29,30 @@ CURRENT_DIR=`pwd`
 ZSH_PLUGINS_DIR="$HOME/.oh-my-zsh/custom/plugins"
 mkdir -p "$ZSH_PLUGINS_DIR" && cd "$ZSH_PLUGINS_DIR"
 if [ ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ]; then
-  echo "----> Installing 'zsh-syntax-highlighting'"
+  echo "-----> Installing 'zsh-syntax-highlighting'"
   git clone https://github.com/zsh-users/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-completions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting
 else
-  echo "----> 'zsh-syntax-highlighting' is already installed, skipping."
+  echo "-----> 'zsh-syntax-highlighting' is already installed, skipping."
 fi
 cd "$CURRENT_DIR"
+
+
+echo "--> Preparing tmux plugins"
+
+if [ ! -d $HOME/.tmux/plugins/tpm ]; then
+  echo "-----> Installing tmux plugin manager"
+  git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+  $HOME/.tmux/plugins/tpm/bin/install_plugins
+fi
+
+if [ ! command -v xclip >/dev/null 2>&1 ]; then
+  echo "-----> Installing xclip for tmux-yank"
+  sudo apt install -y xclip
+else
+  echo "-----> xclip is already installed, skipping."
+fi
+
+echo "--> Done!"
+
