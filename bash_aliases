@@ -3,12 +3,11 @@ alias b="bundle exec"
 alias br='bundle exec rails'
 alias zbr='zeus rails'
 
-#alias git=hub
-
 alias st='git status'
 alias c="git commit -m $1"
 alias ca="git commit --amend"
 alias ga="git add -p"
+alias gpp='gpr && git prune-all && git cleanup'
 alias gt='gitk --all'
 alias tg='tig --all'
 
@@ -28,3 +27,7 @@ alias dev='npm run dev'
 alias gdnolocks="git diff $1 -- . ':(exclude)package-lock.json' ':(exclude)uv.lock' ':(exclude)Gemfile.lock'"
 
 ysess='ysess -i'
+
+alias tm='tmuxomatic'
+
+alias lg=lazygit
