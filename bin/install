@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "--> Linking config files"
+
 ln -isT $(readlink -f vim) ~/.vim
 
 ln -is $(readlink -f bash_aliases) ~/.bash_aliases
@@ -11,3 +13,11 @@ ln -is $(readlink -f irbrc) ~/.irbrc
 ln -is $(readlink -f tmux.conf) ~/.tmux.conf
 ln -is $(readlink -f vimrc) ~/.vimrc
 ln -is $(readlink -f zshrc) ~/.zshrc
+
+if [ ! -f "/etc/docker/daemon.json" ]; then
+  echo "--> Creating docker daemon config file '/etc/docker/daemon.json'"
+  mkdir $HOME/docker
+  echo "{\"data-root\": \"$HOME/docker\"}" | sudo tee -a "/etc/docker/daemon.json"
+else
+  echo "--> Docker daemon.json already exist, skipping."
+fi
