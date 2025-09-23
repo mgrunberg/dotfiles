@@ -16,8 +16,8 @@ ln -is $(readlink -f zshrc) ~/.zshrc
 
 if [ ! -f "/etc/docker/daemon.json" ]; then
   echo "--> Creating docker daemon config file '/etc/docker/daemon.json'"
-  mkdir $HOME/docker
-  echo "{\"data-root\": \"$HOME/docker\"}" | sudo tee -a "/etc/docker/daemon.json"
+  sudo mkdir -p /etc/docker
+  echo "{\"data-root\": \"$HOME/docker\", \"log-opts\": { \"max-file\": \"3\", \"max-size\": \"100m\" } }" | sudo tee -a "/etc/docker/daemon.json"
 else
   echo "--> Docker daemon.json already exist, skipping."
 fi
