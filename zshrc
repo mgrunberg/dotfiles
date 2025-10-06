@@ -14,10 +14,14 @@ node-prompt() {
  echo "$fg[white]|$fg[green]node-${"$(fnm current)":1}"
 }
 
+ruby-prompt() {
+  echo "ruby-$(rbenv version | sed -e "s/ (set.*)//")"
+}
+
 ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}%{✘%G%}"
 ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}%{+%G%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{✓%G%}"
-PROMPT='$fg[white]%B%m@%{$fg[blue]%}$(rvm-prompt)$(node-prompt)%{$fg[white]%}%~%b$(git_super_status)'$'\n''() -> '
+PROMPT='$fg[white]%B%m@%{$fg[blue]%}$(ruby-prompt)$(node-prompt)%{$fg[white]%}%~%b$(git_super_status)'$'\n''() -> '
 # Clear right prompt
 RPROMPT=''
 
@@ -47,9 +51,11 @@ esac
 # pnpm end
 
 # rvm
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+# export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
+# rbenv
+eval "$($HOME/.rbenv/bin/rbenv init - --no-rehash zsh)"
 
 export LC_ALL=en_US.UTF-8
 export QT_QPA_PLATFORM=""
