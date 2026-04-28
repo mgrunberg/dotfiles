@@ -55,7 +55,7 @@ esac
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # rbenv
-eval "$($HOME/.rbenv/bin/rbenv init - --no-rehash zsh)"
+eval "$(rbenv init - --no-rehash zsh)"
 
 export LC_ALL=en_US.UTF-8
 export QT_QPA_PLATFORM=""
