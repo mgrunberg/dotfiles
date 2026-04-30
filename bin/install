@@ -47,7 +47,7 @@ if [ ! -d $HOME/.tmux/plugins/tpm ]; then
   $HOME/.tmux/plugins/tpm/bin/install_plugins
 fi
 
-if [ ! command -v xclip >/dev/null 2>&1 ]; then
+if ! command -v xclip >/dev/null 2>&1; then
   echo "-----> Installing xclip for tmux-yank"
   sudo apt install -y xclip
 else
