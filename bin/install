@@ -54,5 +54,13 @@ else
   echo "-----> xclip is already installed, skipping."
 fi
 
+if ! command -v wl-copy >/dev/null 2>&1; then
+  echo "-----> Installing wl-clipboard for vim in wyland"
+  sudo apt install -y wl-clipboard
+else
+  echo "-----> wl-clipboard is already installed, skipping."
+fi
+
+
 echo "--> Done!"
 
