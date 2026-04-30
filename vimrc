@@ -14,6 +14,10 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 
+set mouse=a
+set ttymouse=sgr
+set clipboard=unnamedplus
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -205,3 +209,11 @@ function! OpenURL()
 endfunction
 map <Leader>w :call OpenURL()<CR>
 
+" Fix copy on wiland
+if executable('wl-copy')
+    augroup fix_wayland_clipboard
+        autocmd!
+        " Al copiar en Vim, enviarlo a wl-copy
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system('wl-copy', @") | endif
+    augroup END
+endif
