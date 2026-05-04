@@ -209,11 +209,3 @@ function! OpenURL()
 endfunction
 map <Leader>w :call OpenURL()<CR>
 
-" Fix copy on wiland
-if executable('wl-copy')
-    augroup fix_wayland_clipboard
-        autocmd!
-        " Al copiar en Vim, enviarlo a wl-copy
-        autocmd TextYankPost * if v:event.operator ==# 'y' | call system('wl-copy', @") | endif
-    augroup END
-endif
