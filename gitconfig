@@ -22,7 +22,7 @@
 [user]
   name = Matias Grunberg
   email = matias@yellowspot.dev
-	signingkey = /home/matias/.ssh/id_ed25519.pub
+  signingkey = /home/matias/.ssh/id_ed25519.pub
   
 [core]
   excludesfile = /home/matias/.gitignore
@@ -55,8 +55,10 @@
   rebase = true
 
 [gpg]
-	format = ssh
+  format = ssh
+
 [commit]
-	gpgsign = true
+  gpgsign = true
+
 [tag]
-	gpgsign = true
+  gpgsign = true
