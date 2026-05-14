@@ -31,3 +31,6 @@ ysess='ysess -i'
 alias tm='tmuxomatic'
 
 alias lg=lazygit
+
+alias vim=nvim
+alias xvim=vim
