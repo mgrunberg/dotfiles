@@ -21,6 +21,10 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- Display absolute numbers
+vim.opt.number = true
+vim.opt.relativenumber = false -- Ensure relative is off
+
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
